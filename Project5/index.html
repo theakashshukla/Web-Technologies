@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <script language="javascript"> 
+    
+    function fncDisplayInfo() {
+            var xhttp = null; 
+            var flag = 0; 
+            var userid = document.frm.uname.value; 
+            var xmlDoc = new ActiveXObject("microsoft.xmldom"); 
+            xmlDoc.load("user.xml"); var noOfUsers = xmlDoc.getElementsByTagName("userlist")[0].childNodes.length; 
+            for (var i = 0; i < parseInt(noOfUsers); 
+            i++) 
+            {
+                var uid = xmlDoc.getElementsByTagName("user")[i].childNodes[0].childNodes[0].nodeValue; 
+                    if (uid == userid) {
+                        document.write("<h1>User Details</h1>");
+                        var userName = xmlDoc.getElementsByTagName("user")[i].childNodes[1].childNodes[0].nodeValue; 
+                        var Address = xmlDoc.getElementsByTagName("user")[i].childNodes[2].childNodes[0].nodeValue; 
+                        var phone = xmlDoc.getElementsByTagName("user")[i].childNodes[3].childNodes[0].nodeValue; 
+                        var email = xmlDoc.getElementsByTagName("user")[i].childNodes[4].childNodes[0].nodeValue; 
+                        document.write("<br><b>User ID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + uid) 
+                            document.write("<br>User Name :&nbsp" + userName);
+                            document.write("<br>Address :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp " + Address); 
+                            document.write("<br>Phone no : &nbsp&nbsp&nbsp&nbsp&nbsp" + phone); 
+                            document.write("<br>E - Mail : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + email); 
+                            flag = 1; 
+                            break;
+                    }
+            }
+            if (flag == 0) {
+                alert("InValid User");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1><b>User Information</h1>
+        <form name="frm"> User ID : <input type="text" name="uname"><br>
+            <input type="button" name="btn" value="Submit" onclick="fncDisplayInfo()">
+        </form>
+    </center>
+</body>
+
+</html>

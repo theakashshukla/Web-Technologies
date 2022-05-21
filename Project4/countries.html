@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Get the Country capital</title>
+    </head>
+    <body bgcolor="green" onload="document.getElementById('myedit').value">
+        <font color="white" size="4"><b>Select the country name to find its capital and continent</b>
+        </font><br/><br/>
+        <br>
+        <select <input type="text" class ="resizedTextbox" id="myedit" onchange="editChange()"
+        onkeyup="editChange()"/>>
+        <option>Select Country</option>
+        <option>Germany</option>
+        <option>United States of America</option>
+        <option>India</option>
+        <option>United Kingdom</option>
+        <option>France</option>
+    </select>
+    <div id="result">&nbsp;</div>
+    <script type="text/javascript">
+        var cName=new Array();
+        cName[0]='Germany, Berlin, Europe';
+        cName[1]='United States of America, Washington DC, North America';
+        cName[2]='India, New Delhi, Asia';
+        cName[3]='United Kingdom, London, Europe';
+        cName[4]='France, Paris, Europe';
+        function editChange() {
+            obj = document.getElementById('myedit');
+            s = obj.value.toLowerCase();
+            res = "";
+            for(i=0; i<cName.length; i++) {
+                s2 = cName[i].toLowerCase().substr(0, s.length);
+                if(s2==s&&s!="") {
+                    sp = cName[i].split(',');
+                    res +='<table><tr><td><font color="white" size="5">'+sp[0]+','+sp[1]+'&nbsp;&nbsp;'+sp[2]+'<font></td></tr></table>';
+                        }
+                    }
+                    document.getElementById('result').innerHTML=res==''?'<font color="white" size="5"><i> &nbsp; Not found </i></font>' : res;
+                    
+                }
+    </script>
+    </body>
+    </html>
