@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script>
+        function countWords(str) {
+            var count = 0;
+            words = str.split(" ");
+            for (i = 0; i < words.length; i++) {
+
+                if (words[i] != "")
+                    count += 1;
+            }
+            document.theForm.results.value = "There are " + count + " words in the text string you entered!";
+        }
+        function countLines() {
+            var area = document.getElementById("texta");
+            var text = area.value.replace(/\s+$/g, "");
+            var split = text.split("\n");
+            return split.length;
+        }
+        function countit(what) {
+            formcontent = what.form.inStr.value
+            what.form.displaycount.value = formcontent.length
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        <font color="black">COUNT TOTAL NUMBER OF WORDS CHARACTERS AND LINES</font>
+    </h1>
+    <form name="theForm">
+        <label>
+            Enter a text string:
+        </label>
+        <textarea name="inStr" id="texta" rows=5 cols=15> </textarea>
+        <input type="button" value="Count Words" onClick="countWords(document.theForm.inStr.value)" ;>
+        <input type="button" name="theButton" value="Clear Results" onClick='document.theForm.results.value=""' ;>
+        <br>
+        <textarea name=results rows=5 cols=90> </textarea>
+
+        <input type="button" value="Calculate Characters" onClick="countit(this)">
+        <input type="text" name="displaycount" size="20"></p>
+
+        <br>
+        <button onclick="alert(countLines())">Count Lines</button>
+    </form>
+    
+</body>
+</html>
