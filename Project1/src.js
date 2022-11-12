@@ -28,7 +28,7 @@ function NumToWord(inputNumber, outputControl) {
                 else {
                     word[j] = once[rev[i]];
                 }
-                word[j] = word[j];
+                word[j] = " " + word[j];
                 break;
 
              case 1:
