@@ -15,12 +15,12 @@ form {
 }
 
 div{
-    width: 400px;
+    width: 500px;
     margin: 40px;
     padding-left: 30px;
     padding-right: 60px;
-    padding-top: 40px;
-    padding-bottom: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #666bff;
     border-radius: 15px;
 }
@@ -41,6 +41,8 @@ div{
 .buttoncal{
     background-color: #222c8b;
         color: white;
+        margin-left: 20px;
+        margin-top: 10px;
         padding: 12px 20px;
         border: none;
         border-radius: 4px;
